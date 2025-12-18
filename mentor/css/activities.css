@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+
+h1 {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    font-size: 45px;
+    color: var(--primary-color, #6a0dad);
+    text-align: center;
+}
+
+h4{
+    font-size: 30px;
+    color:#8a5a96;
+    margin: 0 60px;
+}
+
+h3{
+    font-size: 30px;
+    color: var(--primary-color, #6a0dad);
+    margin: 0 60px;
+}
+
+
+.top-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    width: 80%;
+    margin: 0 auto 20px auto;
+}
+
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+.course-btn {
+     background: linear-gradient(135deg, #4b2354, #8a5a96);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 360px;
+      height: 80px;      
+      font-size: 30px;
+      
+    }
+
+.course-btn:hover {
+      background-color: #4b2354;
+    }
+
+.question-box {
+  background: linear-gradient(to right, #f3e5f5, #ffffff);
+  padding: 25px;
+  margin: 20px 60px;
+  border-left: 5px solid #6a1b9a;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+/* Optional hover effect */
+.question-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+.hidden {
+    display: none;
+}
+    .status-label {
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    .Approved {
+      background-color: #d3c8e6;
+      color: #7c5a96;
+    }
+    .Rejected {
+      background-color: #d3c8e6;
+      color: #8a5a96;
+    }
+    .UnderReview {
+      background-color: #d3c8e6;
+      color: #8a5a96;
+    }
+    .btn-action {
+      margin-right: 5px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      height: 35px;
+      width: 100px; 
+    }
+    .btn-approve {
+      background: linear-gradient(135deg, #4b2354, #8a5a96);
+      color: white;
+    }
+    .btn-reject {
+      background: linear-gradient(135deg, #4b2354, #8a5a96);
+      color: white;
+    }
+ 

@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: sans-serif;
+    background-color: var(--dash-color, #f5f0fa);
+    margin: 0;
+    padding: 20px;
+    color: var(--text-color, #000);
+}
+
+h1 {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    font-size: 45px;
+    color: var(--primary-color, #6a0dad);
+    text-align: center;
+    text-shadow: 1px 1px 2px #caa0ff;
+}
+
+table {
+    width: 100%;
+    max-width: 1700px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: linear-gradient(135deg, #f3e6ff, #fdf6ff);
+    box-shadow: 0 0 18px rgba(155, 89, 182, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+table thead {
+    background: linear-gradient(135deg, #4b2354, #8a5a96);
+}
+
+table th {
+    color: #ffffff;
+    padding: 18px 15px;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+table th, table td {
+    border: 1px solid #e0ccff;
+    text-align: center;
+}
+
+table td {
+    padding: 14px 12px;
+    font-size: 15px;
+    color: #4a0072;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+table tr:hover td {
+    background-color: #f3e6ff;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.view-btn {
+    padding: 8px 16px;
+    background-color: #4b2354;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: var(--time-02, all 0.2s linear);
+    font-weight: 500;
+}
+
+.view-btn:hover {
+    background-color: #8a5a96;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 1700px;
+    margin: 40px auto;
+    background: var(--white, #fff);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(106, 13, 173, 0.1);
+    animation: popup-animation 0.5s ease-out forwards;
+    overflow: visible; /* ensure no scroll, allow full height */
+}
+
+
+.form-container.show-popup {
+    display: block !important;
+    animation: popupAnimation 0.4s ease-out forwards;
+    z-index: 1000;
+    position: relative;
+}
+
+@keyframes popupAnimation {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--primary-color, #6a0dad);
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d6c0f7;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color, #000);
+}
+
+.form-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.update-btn {
+    background-color: #7f3fbf;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: var(--time-02, all 0.2s linear);
+}
+
+.update-btn:hover {
+    background-color: #6b2ea8;
+}
+
+.cancel-btn, .delete-btn {
+    background-color: #e57373;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: var(--time-02, all 0.2s linear);
+}
+
+.cancel-btn:hover, .delete-btn:hover {
+    background-color: #d32f2f;
+}
+
+.alert {
+    background-color: #e0c3fc;
+    color: #4a148c;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px auto;
+    width: 50%;
+    font-weight: bold;
+    box-shadow: 0 0 10px #c89ffa;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    width: 80%;
+    margin: 0 auto 20px auto;
+}
+
+.create-btn, .search-btn {
+    background-color: var(--primary-color, #6a0dad);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--time-02, all 0.2s linear);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    width: 30px;
+    margin-right: 125px;
+}
+
+.search-box input[type="text"] {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+    height: 40px;
+}
+
+.search-btn {
+    background-color: var(--primary-color, #6a0dad);
+    color: white;
+    border: 1px solid var(--primary-color, #6a0dad);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 16px;
+    height: 40px;
+    cursor: pointer;
+    transition: var(--time-02, all 0.2s linear);
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.create-btn:hover, .search-btn:hover {
+    background-color: #4b2354;
+}
+
+#menteeDetails {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    z-index: 1000;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 1300px;
+    height: auto;
+    margin-top: 450px;
+}
+
+/* Replace your current #detailView and #adminDetails styles with this: */
+#detailView {
+    display: none;
+    width: 100%;
+    max-width: 1700px;
+    margin: 20px auto;
+    border-radius: 20px;
+    padding: 30px;
+    animation: fadeIn 0.3s ease-out;
+    margin-top: -60px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#tableContainer {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+
+/* Password visibility toggle */
+.password-input-container {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #777;
+}
+
+/* Success message styling */
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+}

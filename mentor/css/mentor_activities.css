@@ -1,0 +1,969 @@
+/*
+ * Custom CSS for Mentor Activities Module
+ */
+
+/* --- Variables (If not globally defined) --- */
+:root {
+    --primary-color: #6a2c70; /* A deep purple */
+    --purple-gradient: linear-gradient(135deg, #6a2c70, #a85eba);
+    --hover-gradient: linear-gradient(135deg, #6a2c70, #9340e3);
+    --secondary-color: #6a2c70;
+    --success-color: #4CAF50;
+    --error-color: #F44336;
+    --warning-color: #6a2c70;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-deep: 0 8px 20px rgba(0, 0, 0, 0.1);
+    --transition-duration: 0.3s;
+}
+
+
+        .section-title {
+            margin-top: 20px;
+             margin-bottom: 30px;
+            font-size: 45px;
+            color: var(--primary-color, #6a0dad);
+             text-align: center;
+            text-shadow: 1px 1px 2px #caa0ff;
+        }
+
+/* --- General Layout and Container --- */
+.container {
+    padding: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- Tab Navigation Styling (Top Bar) --- */
+.tab-navigation {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    margin-top: 50px;
+    margin-bottom: 25px;
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tabs-list {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.tabs-list::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-item {
+    flex-shrink: 0;
+    padding: 12px 20px;
+    border: none;
+    background-color: transparent;
+    color: var(--secondary-color);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-duration) ease;
+    border-bottom: 3px solid transparent;
+    margin-right: 5px;
+}
+
+.tab-item:hover {
+    color: var(--primary-color);
+    background-color: #f7f3ff;
+}
+
+.tab-item.active {
+    color: white;
+    background: var(--purple-gradient); /* Keep gradient for active tab for visual distinction */
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(122, 62, 242, 0.3);
+    border-bottom: none;
+}
+
+/* --- Tab Content Transitions --- */
+.tab-content {
+    display: none;
+    padding: 20px 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity var(--transition-duration) ease, transform var(--transition-duration) ease;
+}
+
+.tab-content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Messages --- */
+.inline-msg, .small-msg {
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: var(--shadow-light);
+}
+
+.inline-msg.success, .small-msg.success {
+    background-color: #e6ffe6;
+    color: #388e3c;
+    border: 1px solid #a5d6a7;
+}
+
+.inline-msg.error, .small-msg.error {
+    background-color: #ffe6e6;
+    color: #d32f2f;
+    border: 1px solid #ef9a9a;
+}
+
+.inline-msg.warning, .small-msg.warning {
+    background-color: #fff8e1;
+    color: #f57f17;
+    border: 1px solid #ffecb3;
+}
+
+/* --- Cards and Form Structure --- */
+.card-large {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-deep);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.card-title {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-row .form-group.half {
+    flex-basis: calc(50% - 10px);
+}
+
+input[type="text"],
+input[type="file"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="file"] {
+    padding: 10px 12px; /* Adjust padding for file input */
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #a64bf4;
+    box-shadow: 0 0 0 3px rgba(122, 62, 242, 0.1);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-action-buttons {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+    text-align: right;
+}
+
+/* -------------------------------------------
+   IMPROVED MODERN BUTTON STYLES (No Gradient)
+   ------------------------------------------- */
+
+/* Primary Button Style (for .gradient-button and form submit) */
+.gradient-button, 
+.form-action-buttons button[type="submit"],
+.modal-footer button[type="submit"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px; /* Reduced padding/size */
+    font-size: 15px;
+    font-weight: 600;
+    color: white; 
+    border: none;
+    border-radius: 6px; /* Slightly smaller radius */
+    cursor: pointer;
+    background-color: var(--primary-color); /* Flat primary color */
+    box-shadow: 0 3px 10px rgba(106, 13, 173, 0.2); /* Subtle shadow */
+    transition: all 0.2s ease;
+    gap: 8px;
+    text-transform: none; /* Less aggressive text */
+    letter-spacing: normal;
+}
+
+.gradient-button:hover,
+.form-action-buttons button[type="submit"]:hover,
+.modal-footer button[type="submit"]:hover {
+    background-color: #5d0c99; /* Slightly darker hover */
+    box-shadow: 0 4px 12px rgba(106, 13, 173, 0.3);
+    transform: translateY(-1px);
+}
+
+/* Secondary Button Style (for "Add Question") */
+.secondary-button:not(.modal-footer .secondary-button) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--primary-color); 
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 0.2s ease;
+    gap: 8px;
+    text-transform: none;
+    letter-spacing: normal;
+    box-shadow: none;
+}
+
+.secondary-button:not(.modal-footer .secondary-button):hover {
+    background-color: #f7f3ff; /* Light purple background on hover */
+    color: #5d0c99;
+    transform: none;
+}
+
+/* Modal Footer Secondary Button (e.g., Cancel/Close) */
+.modal-footer .secondary-button {
+    /* Retain clean outline style for contrast */
+    background: transparent;
+    color: #777;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.modal-footer .secondary-button:hover {
+    color: #333;
+    border-color: #ccc;
+    background-color: #f9f9f9;
+    transform: none;
+    box-shadow: none;
+}
+
+/* -------------------------------------------
+   END IMPROVED BUTTON STYLES
+   ------------------------------------------- */
+
+
+/* --- Status Tags and Action Buttons --- */
+.status-tag {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-tag.pending {
+    background-color: #fff3e0;
+    color: #ff9800;
+}
+
+.status-tag.approved {
+    background-color: #e8f5e9;
+    color: #43a047;
+}
+
+.status-tag.rejected {
+    background-color: #ffebee;
+    color: #e53935;
+}
+
+.status-tag.submitted {
+    background-color: #e3f2fd;
+    color: #29b6f6;
+}
+
+/* Action buttons in tables */
+.action-cell {
+    white-space: nowrap;
+    text-align: center;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #777;
+    font-size: 18px;
+    padding: 5px;
+    transition: color 0.2s;
+    margin-left: 5px;
+}
+
+.action-btn:hover {
+    color: var(--primary-color);
+}
+
+/* --- Styled Tables --- */
+.table-container {
+    overflow-x: auto;
+    margin-top: 5px;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: separate; /* Use separate for border-radius on cells */
+    border-spacing: 0 10px; /* Space between rows */
+    min-width: 800px;
+}
+
+.styled-table thead th {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 15px 20px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.styled-table thead th:first-child {
+    border-top-left-radius: 10px;
+}
+.styled-table thead th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.styled-table tbody tr {
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow-light);
+    transition: box-shadow 0.3s;
+}
+
+.styled-table tbody tr:hover {
+    box-shadow: 0 6px 15px rgba(122, 62, 242, 0.15);
+}
+
+.styled-table tbody td {
+    padding: 15px 20px;
+    border: none;
+    font-size: 15px;
+    color: #333;
+}
+
+.styled-table tbody tr:first-child td:first-child { border-top-left-radius: 10px; }
+.styled-table tbody tr:first-child td:last-child { border-top-right-radius: 10px; }
+.styled-table tbody tr:last-child td:first-child { border-bottom-left-radius: 10px; }
+.styled-table tbody tr:last-child td:last-child { border-bottom-right-radius: 10px; }
+
+
+/* Mobile Table Styling (Optional: use data-label) */
+@media (max-width: 768px) {
+    .styled-table thead {
+        display: none;
+    }
+
+    .styled-table tbody tr {
+        display: block;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+    }
+
+    .styled-table tbody td {
+        display: block;
+        text-align: right;
+        padding: 10px 15px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .styled-table tbody td:last-child {
+        border-bottom: none;
+    }
+
+    .styled-table tbody td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: 600;
+        color: var(--secondary-color);
+    }
+
+    .styled-table tbody tr:first-child td:first-child, 
+    .styled-table tbody tr:first-child td:last-child, 
+    .styled-table tbody tr:last-child td:first-child, 
+    .styled-table tbody tr:last-child td:last-child { 
+        border-radius: 0; 
+    }
+}
+
+/* --- Dynamic Question Cards --- */
+.questions-heading {
+    color: var(--primary-color);
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 5px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.question-card {
+    background-color: #fcfcfc;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    transition: all 0.2s ease;
+}
+
+.question-card:hover {
+    border-color: #a64bf450;
+    box-shadow: 0 4px 8px rgba(122, 62, 242, 0.1);
+}
+
+.question-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: none;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    padding: 0;
+}
+
+.question-card h4 {
+    margin: 0;
+    color: var(--secondary-color);
+    font-size: 18px;
+}
+
+.question-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.question-type-select {
+    padding: 6px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 14px;
+}
+
+.choices-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.add-question-section {
+    padding-top: 10px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.add-question-section .instruction {
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+    color: #777;
+}
+
+.file-upload-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed #e0e0e0;
+}
+
+/* --- Modal Styles (Global) --- */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.visible {
+    display: flex;
+    opacity: 1;
+}
+
+.logout-dialog { 
+    /* Re-using the class for delete confirmation */
+    display: flex;
+}
+
+.modal-content, .logout-content {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-deep);
+    width: 90%;
+    max-width: 600px;
+    transform: translateY(-50px);
+    transition: transform 0.3s ease;
+}
+
+.modal.visible .modal-content, .modal.visible .logout-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 15px;
+    margin-top: 20px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* --- Delete/Logout Confirmation Dialog Specific --- */
+.logout-content {
+    max-width: 400px;
+    text-align: center;
+}
+.logout-content p {
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+/* --- Assignment Modal Specific (Fixed Checklist Layout) --- */
+#assignActivityModal .modal-content {
+    max-width: 500px;
+}
+
+/* Header row: title + Select All button */
+.mentee-select-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+/* Keep your existing button style (inherits your purple theme) */
+.mentee-select-header .secondary-button.small-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    padding: 5px 10px;
+}
+
+/* Scrollable checklist box */
+.mentee-checklist-container {
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Each mentee line */
+.mentee-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+    color: #401b43;
+    font-size: 14px;
+}
+
+.mentee-item:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.mentee-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Checkbox alignment and visibility */
+.mentee-item input[type="checkbox"] {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary-color);
+}
+
+
+
+/* --- Activity Preview Modal Specific (Fixed Scrollability) --- */
+#previewActivityModal .modal-content {
+    max-width: 700px;
+    /* --- NEW/UPDATED STYLES FOR SCROLL --- */
+    max-height: 85vh; /* Set a max height for tall screens */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.activity-preview-details {
+    padding: 15px;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #fcfcfc;
+}
+
+.activity-preview-details strong {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.preview-file-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 10px;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    gap: 5px;
+    transition: color 0.2s;
+}
+
+.preview-file-link:hover {
+    color: #a64bf4;
+}
+
+.preview-questions-list {
+    margin-top: 25px;
+}
+
+.preview-question-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.preview-question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.preview-question-header h4 {
+    margin: 0;
+    font-size: 17px;
+    color: var(--secondary-color);
+}
+
+.preview-question-type {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-color);
+    background-color: #f7f3ff;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.preview-question-text {
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 16px;
+}
+
+.preview-options-container .option {
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    background-color: #f5f5f5;
+    border-left: 5px solid transparent;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+/* Style the correct answer */
+.preview-options-container .option.correct {
+    background-color: #e6ffed; /* Light green */
+    border-left-color: var(--success-color);
+    font-weight: 600;
+    color: #333;
+}
+
+.identification-answer-preview {
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    margin-top: 15px;
+}
+.identification-answer-preview strong {
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+
+
+/* 1. Ensure the modal content is vertically manageable */
+.modal-content.large-modal {
+    max-height: 95vh; /* Keep a maximum height boundary */
+    display: flex;
+    flex-direction: column; /* Stacks children vertically */
+        overflow-y: auto; /* Enable vertical scrolling */
+
+}
+
+/* 2. Target the section that holds the dynamic Q&A content */
+.review-questions-container {
+    /* flex: 1 1 auto; allows this section to GROW and SHRINK
+       and takes up all available space between the header/summary and the grading fields */
+    flex: 1 1 auto; 
+    overflow-y: auto; /* *** This is the key: Enables vertical scrolling *** */
+    padding-right: 15px; /* Adds space for the scrollbar to not overlap content */
+    margin-bottom: 20px;
+}
+
+/* 3. Style for the score input (from previous update - kept for completeness) */
+#overall_score {
+    font-size: 24px;
+    padding: 12px 15px;
+    width: 200px; 
+    font-weight: 700;
+    text-align: center;
+    border: 2px solid var(--secondary-color);
+    transition: border-color 0.3s;
+}
+
+#overall_score:focus {
+    border-color: #a85eba;
+    box-shadow: 0 0 8px rgba(168, 94, 186, 0.4);
+}
+
+/* Optional: Minor styling for review blocks */
+.review-question-block {
+    padding: 15px 0;
+}
+
+.mentee-answer-box {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #f9f9f9;
+    border-left: 4px solid var(--secondary-color); 
+    border-radius: 4px;
+}
+
+/* --- Toast Notification Styles --- */
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000; /* Ensure it's above everything, including the modal */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast-message {
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    min-width: 250px;
+    max-width: 400px;
+}
+
+.toast-message.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.toast-message.success {
+    background-color: #5a1e53;
+}
+
+.toast-message.error {
+    background-color: var(--error-color, #F44336);
+}
+
+/* --- New Styles for Answer Status in Review Modal --- */
+
+/* Base styling for the mentee answer box */
+.mentee-answer-box {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    border-left: 4px solid #ccc; /* Neutral default */
+    background-color: #f9f9f9;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Header for the answer box */
+.mentee-answer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+/* Status Icon Styling */
+.mentee-answer-box .status-icon {
+    font-size: 1.5em;
+    padding-left: 10px;
+}
+
+/* Styling for CORRECT answers */
+.mentee-answer-box.correct-answer {
+    border-left-color: var(--success-color, #4CAF50);
+    background-color: #e6ffe6; /* Light green background */
+}
+
+.mentee-answer-box.correct-answer .status-icon {
+    color: var(--success-color, #4CAF50);
+}
+
+/* Styling for INCORRECT answers */
+.mentee-answer-box.incorrect-answer {
+    border-left-color: var(--error-color, #F44336);
+    background-color: #ffe6e6; /* Light red background */
+}
+
+.mentee-answer-box.incorrect-answer .status-icon {
+    color: var(--error-color, #F44336);
+}
+
+/* Styling for the displayed correct answer */
+.correct-answer-text {
+    margin-top: 10px;
+    padding-top: 5px;
+    border-top: 1px dashed #ccc;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.correct-answer-text.manual-check {
+    color: var(--warning-color, #ffa500);
+}
+
+
+.gradient-button.cancel {
+    background: #8d1579;
+    margin-left: 10px;
+    transition: background 0.3s ease;
+}
+.gradient-button.cancel:hover {
+    background: #e74c3c;
+}
+
+/* --- Filter Area Styling --- */
+.filter-area {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    padding: 20px 30px;
+    margin-bottom: 25px;
+    border: 1px solid var(--border-color);
+}
+
+.filter-area .form-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end; /* Align inputs/selects better */
+}
+
+.filter-area .form-group {
+    flex: 1;
+    margin-bottom: 0; /* Override default form-group margin */
+}
+
+.filter-area label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+}
+
+/* --- Filter Layout Utility Classes (Append to existing CSS) --- */
+
+.filter-area .form-group.half {
+    flex: 0 0 calc(50% - 10px); /* 100% / 2 - space between */
+    max-width: calc(50% - 10px);
+}
+
+.filter-area .form-group.one-third {
+    /* Calculates space for 3 columns with 20px gap */
+    flex: 0 0 calc(33.333% - 13.333px); 
+    max-width: calc(33.333% - 13.333px);
+}

@@ -1,0 +1,452 @@
+/* Base and General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #6a2c70;
+    --background-color: #f0e6f5;
+    --border-color: #ccc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-transform: none;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--background-color);
+}
+
+/* Main Content Container */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    margin: 90px auto;
+    padding: 20px;
+    width: 90%;
+}
+
+/* Post Container Styles */
+.post-container {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    margin-top: 40px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.post-header {
+    position: relative;
+    display: flex; 
+    align-items: flex-start; 
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px; 
+    border-radius: 50%; 
+    margin-right: 10px; 
+    object-fit: cover; 
+}
+
+.post-author-details { 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.post-author { 
+    font-weight: bold;
+    font-size: 14px;
+    color: #050505;
+}
+
+.post-date { 
+    font-size: 12px; 
+    color: #65676b; 
+}
+
+.post-title {
+    font-weight: bold;
+    font-size: 22px;
+    color: #3b3b3b;
+    margin-bottom: 10px;
+}
+
+.post-content {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.post-content img { 
+    max-width: 100%; 
+    border-radius: 15px; 
+    margin-top: 10px; 
+}
+
+.post-content li {
+    margin-left: 20px; 
+}
+
+/* Post Actions (Like, Comment, Report) */
+.post-actions {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+    border-top: 1px solid #e9ebee;
+    padding-top: 10px;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #65676b;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    transition: background 0.2s;
+}
+
+.action-btn:hover {
+    background-color: #f2f2f2;
+}
+
+.action-btn.liked {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.report-btn { 
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+    color: #888; 
+    margin-left: 10px; 
+    font-size: 0.9em; 
+}
+
+/* Comment Section Styles */
+.join-convo-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.join-convo-form input {
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #ccd0d5;
+    font-size: 14px;
+    background: #f0f2f5;
+}
+.join-convo-form input:focus {
+    outline: none;
+}
+
+.join-convo-form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.join-convo-form button:hover {
+    background-color: #5a2460;
+}
+
+.comment {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.comment-author-details { 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.comment-bubble {
+    background: #f0f2f5;
+    border-radius: 18px;
+    padding: 8px 12px;
+    font-size: 14px;
+    max-width: 100%; 
+    word-wrap: break-word;
+}
+
+.comment-bubble strong {
+    font-size: 13px;
+    display: block;
+    color: #050505;
+    margin-bottom: 2px;
+}
+
+.comment-timestamp {
+    font-size: 12px;
+    color: #65676b;
+    padding-left: 12px;
+    margin-top: 4px;
+}
+
+/* Floating "Create Post" Button */
+.create-post-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #888;
+}
+
+.title-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px; 
+    font-size: 16px;
+}
+
+.content-editor {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.toolbar {
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.toolbar button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.text-content {
+    min-height: 150px;
+    padding: 15px;
+    margin-left: 10px;
+    font-size: 15px;
+    outline: none;
+}
+
+.post-btn {
+    background: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 12px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+    font-size: 16px;
+}
+
+/* Image Upload Area in Modal */
+#image-upload-container {
+    margin-bottom: 15px;
+}
+
+.image-upload-area {
+    border: 2px dashed #d0d0d0;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    color: #555;
+    background-color: #f9f9f9;
+    transition: all 0.2s ease-in-out;
+    display: block; /* This line makes it full-width */
+}
+
+.image-upload-area:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+#report-modal-overlay textarea {
+    width: 100%;
+    height: 120px;
+    resize: none;
+    padding: 8px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* In css/forums.css */
+
+/* Styling for Post Options Menu */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Aligns items to the top */
+    width: 100%;
+}
+
+.post-options {
+    /* No longer needs absolute positioning */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.options-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #65676b;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.options-button:hover {
+    background-color: #f0f2f5;
+}
+
+.delete-post-form {
+    display: none;
+    margin: 0; 
+}
+
+.delete-post-form.show {
+    display: block;
+}
+
+.delete-post-button {
+    background-color: #f0f2f5;
+    border: 1px solid #ccd0d5;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.delete-post-button:hover {
+    background-color: #e4e6e9;
+}
+
+/* Header Styles */
+.chat-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.chat-header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.chat-header .actions {
+    display: flex;
+    gap: 15px;
+}
+
+.chat-header button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.2s;
+}
+
+.chat-header button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.chat-header button ion-icon {
+    font-size: 18px;
+}

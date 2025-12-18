@@ -1,0 +1,278 @@
+/* Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #6a2c70;
+    --nav-color: #693B69;
+    --dash-color: #fff;
+    --logo-color: #fff;
+    --text-color: #000;
+    --text-color-light: #333;
+    --white: #fff;
+    --border-color: #ccc;
+    --toggle-color: #fff;
+    --title-icon-color: #fff;
+    --admin-message-bg: #f0e6f5;
+    --user-message-bg: #e6f5f0;
+    --time-03: all 0.3s linear;
+    --time-02: all 0.2s linear;
+    --background-color: #f0e6f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-transform: none;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+}
+
+body.dark {
+    --primary-color: #3a3b3c;
+    --nav-color: #181919;
+    --dash-color: #262629;
+    --logo-color: #ecd4ea;
+    --text-color: #ecd4ea;
+    --text-color-light: #ccc;
+    --white: #aaa;
+    --border-color: #404040;
+    --toggle-color: #693b69;
+    --title-icon-color: #ddd;
+    --admin-message-bg: #3a3a3a;
+    --user-message-bg: #2a2a2a;
+}
+
+
+/* Main container for the reports list */
+.admin-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Styling for the Header on Admin Pages */
+.admin-controls-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.admin-controls-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 1.5em;
+}
+
+.admin-controls-header a {
+    color: #6a2c70; /* Use the primary purple */
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.9em;
+    padding: 8px 0;
+}
+
+.admin-controls-header a:hover {
+    text-decoration: underline;
+}
+
+/* Message shown when there are no reports */
+.admin-container > p {
+    text-align: center;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Individual Report Item Styling */
+.report-card {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.report-card:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Report Details Section */
+.report-info {
+    margin-bottom: 15px;
+}
+.report-info p {
+    margin: 4px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+.report-info p strong {
+    color: #6a2c70;
+    font-weight: 600;
+}
+.report-reason {
+    font-style: italic;
+    color: #333;
+}
+
+/* Wrapper for the reported post content */
+.reported-content-wrapper {
+    padding: 15px;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.reported-content-wrapper > strong {
+    display: none;
+}
+
+/* Embedded post container */
+.post-container {
+    background: #fff;
+    border-radius: 15px;
+    padding: 0;
+    border: none;
+    margin: 0;
+}
+
+.post-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+.user-avatar {
+    width: 40px;
+    height: 40px; 
+    border-radius: 50%; 
+    margin-right: 10px; 
+    object-fit: cover; 
+}
+.post-author-details {
+     display: flex; 
+     flex-direction: column; 
+}
+.post-author {
+    font-weight: bold;
+}
+.post-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #3b3b3b;
+    margin-bottom: 10px;
+}
+.post-content {
+    font-size: 1em;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+.post-content img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* Report Action Buttons */
+.report-actions {
+    border-top: 1px solid #f0f0f0;
+    margin-top: 15px;
+    padding-top: 15px;
+    display: flex;
+    gap: 20px;
+}
+.report-actions .action-btn {
+    background: none;
+    border: none;
+    font-weight: 600;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.report-actions .action-btn.dismiss {
+    color: #28a745; 
+}
+
+.report-actions .action-btn.archive,
+.report-actions .action-btn i.fa-trash {
+    color: #ffc107; 
+} 
+
+.report-actions .action-btn.ban {
+    color: #d9534f; 
+}
+
+.report-actions .action-btn:hover { 
+    opacity: 0.7; 
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.modal {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+.close-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.ban-modal-reason {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+.post-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}

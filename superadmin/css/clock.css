@@ -1,0 +1,43 @@
+body {
+
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f8;
+  }
+  
+  .clock-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .clock-container {
+    background: linear-gradient(90deg, #562b63, #38243e);
+    padding: 30px 50px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    margin-top: -630px;
+    margin-bottom: -50px;
+    width: 200vh;
+  }
+  
+  .time {
+    font-size: 48px;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  
+  #ampm {
+    color: #b0b0b0;
+    margin-left: 10px;
+    font-weight: normal;
+  }
+  
+  .date {
+    margin-top: 10px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #e0e0e0;
+  }
+  

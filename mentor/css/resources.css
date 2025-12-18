@@ -1,0 +1,473 @@
+/* === Light & Dark Theme Variables === */
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text-color, #4b2354);
+  overflow: auto;
+
+}
+
+:root {
+  --text-color: #4b2354;
+  --text-color-light: #666;
+  --white: #ffffff;
+  --border-color: #ccc;
+  --toggle-color: #8a5a96;
+  --title-icon-color: #4b2354;
+  --bg-color: #ffffff;
+  --input-bg: #e2dce2;
+  --card-bg: #e6cbe3;
+  --button-bg: #8a5a96;
+  --button-text: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body.dark {
+  --primary-color: #3a3b3c;
+  --nav-color: #181919;
+  --dash-color: #262629;
+  --logo-color: #ecd4ea;
+  --text-color: #ecd4ea;
+  --text-color-light: #ccc;
+  --white: #aaa;
+  --border-color: #404040;
+  --toggle-color: #693b69;
+  --title-icon-color: #ddd;
+  --bg-color: #2e2e2e;
+  --input-bg: #3e3e3e;
+  --card-bg: #3c2f3f;
+  --button-bg: #693b69;
+  --button-text: #f0f0f0;
+  --shadow-color: rgba(255, 255, 255, 0.1);
+}
+
+#resourceTitle {
+    font-size: 32px;   /* ✅ make it bigger */
+    font-weight: bold;
+    text-align: center;
+    color: #4b2354;
+}
+/* === Page Section Title === */
+.section-title {
+  margin-top: 120px;
+    margin-bottom: 30px;
+    font-size: 150px;
+    color: var(--primary-color, #6a0dad);
+    text-align: center;
+    text-shadow: 1px 1px 2px #caa0ff;
+}
+
+/* === Main Section Layout (For Add/Edit Course View) === */
+#addResourceSection {
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 20px 30px 40px;
+  box-sizing: border-box;
+  transition: margin-left 0.3s ease;
+}
+
+/* Adjust layout when navbar is minimized */
+body.nav-minimized #addResourceSection {
+  margin-left: 0;
+}
+body:not(.nav-minimized) #addResourceSection {
+  margin-left: 0;
+}
+@media (max-width: 768px) {
+  body.nav-minimized #addResourceSection,
+  body:not(.nav-minimized) #addResourceSection {
+    margin-left: 0;
+  }
+}
+
+/* === Form and Preview Card Styling (For Add/Edit View) === */
+.form-container,
+.preview-container {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  background: var(--bg-color);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+/* Beautified Preview Card */
+.preview-container .resource-card {
+  background: #fff; /* white background */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* soft shadow */
+  border: 1px solid #ddd; /* light border */
+  border-radius: 12px; /* rounded corners */
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.preview-container .resource-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.preview-container .resource-card img {
+  max-width: 120px;
+  height: auto;
+  margin: 0 auto 15px auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Title in preview */
+.preview-container h1 {
+  font-size: 20px;
+  margin-top: 15px;
+  color: #5a0dad; /* purple like in the reference */
+  font-weight: bold;
+}
+
+/* Form title */
+.form-container h1 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #5a0dad; /* make this purple too */
+  font-weight: bold;
+}
+
+/* Purple button */
+.preview-container .choose-btn {
+  background: linear-gradient(135deg, #4b2354, #8a5a96);
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.preview-container .choose-btn:hover {
+  background: #7b1fa2;
+}
+
+
+/* === Labels === */
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+/* === Inputs, Textareas, and Select === */
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+input[type="file"] {
+  margin-top: 5px;
+  color: var(--text-color);
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* === Submit Button === */
+.form-container button[type="submit"] {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+.form-container button[type="submit"]:hover {
+  opacity: 0.9;
+}
+
+.preview-container img,
+.resource-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;       /* Makes the image fill the area while preserving aspect */
+  border-radius: 15px;
+  display: block;
+  margin: 0 auto;          /* Centers image horizontally */
+}
+
+/* Optional - Adjust card alignment */
+.preview-container,
+.resource-card {
+  text-align: center;
+}
+
+/* === Submitted Courses Grid Layout === */
+#submittedResources {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+  padding: 10px 15px 20px;
+  box-sizing: border-box;
+}
+
+
+
+/* === Course Card === */
+#submittedResources .resource-card {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-shadow: 0 2px 6px var(--shadow-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#submittedResources .resource-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+/* === Image === */
+#submittedResources .resource-card img {
+  max-width: 100px;
+  margin: 0 auto 10px;
+  border-radius: 6px;
+  display: block;
+}
+
+/* === Text === */
+#submittedResources .resource-card h2 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+#submittedResources .resource-card p {
+  font-size: 12px;
+  line-height: 1.3;
+  margin-bottom: 8px;
+  color: var(--text-color-light);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+#submittedResources .resource-card p strong {
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+/* === Actions === */
+#submittedResources .card-actions {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* === Buttons === */
+#submittedResources .resource-card .edit-btn,
+#submittedResources .resource-card .delete-btn {
+  width: 100%;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 6px;
+
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+
+  color: #fff;
+  transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.2s ease;
+}
+
+#submittedResources .resource-card .edit-btn { background: #a16ba5; }
+#submittedResources .resource-card .delete-btn { background: #7d4e89; }
+
+#submittedResources .resource-card .edit-btn:hover,
+#submittedResources .resource-card .delete-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.category-btn {
+    padding: 8px 16px;
+    border: none;
+    background: linear-gradient(135deg, #4b2354, #8a5a96);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    height: 50px;
+    width: 100px;
+
+}
+
+.category-btn:hover {
+    background: #8a5a96;
+}
+
+.category-btn.active {
+    background: #9851a8; /* overrides the gradient */
+    color: white;
+}
+
+.view-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background: linear-gradient(to right, #4b2354, #8a5a96);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  #addResourceSection {
+    flex-direction: column;
+    padding: 20px 15px 30px;
+    margin-left: 0 !important;
+  }
+
+  .form-container,
+  .preview-container {
+    width: 100%;
+    max-width: none;
+  }
+}
+/* === Section Title === */
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 10px 0 15px;
+  text-align: center;
+  color: #333;
+}
+
+/* === Resource Card === */
+#submittedResources .resource-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 12px;
+  width: 240px;
+
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#submittedResources .resource-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+/* === Image === */
+#submittedResources .resource-card img {
+  max-width: 60px;
+  margin: 0 auto 6px;
+  display: block;
+  border-radius: 4px;
+}
+
+/* === Title === */
+#submittedResources .resource-card h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #5a0dad;
+  margin: 0 0 3px;
+}
+
+/* === Description / File Line === */
+#submittedResources .resource-card p {
+  font-size: 11px;
+  color: #333;
+  margin: 1px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  line-height: 1.2;
+}
+
+/* === View Button === */
+.view-button {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 5px;
+
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(135deg, #4b2354, #8a5a96);
+  transition: background 0.2s ease;
+}
+
+.view-button:hover {
+  background: #7b1fa2;
+}
+
+/* === Status Labels === */
+.status-label {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 5px;
+
+  display: inline-block;
+  margin: 4px auto 0;
+}
+
+.status-label.approved {
+  background: #e6f4ea;
+  color: #137333;
+}
+
+.status-label.rejected {
+  background: #fdecea;
+  color: #d93025;
+}

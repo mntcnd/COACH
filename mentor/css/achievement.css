@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* --- General Page Layout (Now using <section class="achievement-container">) --- */
+.achievement-container {
+    padding: 30px; /* Spacing from the edges of the white content area */
+    max-width: 1200px; /* Max width for large screens */
+    margin: 0 auto; /* Center the container */
+}
+
+.page-title {
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 3px solid #6a1b9a; /* Using a darker shade of the menu purple */
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.page-description {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* --- Achievement Tiers Container --- */
+.achievement-tiers {
+    display: flex; /* Arranges the cards side-by-side */
+    gap: 30px; /* Space between the cards */
+    flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+}
+
+/* --- Individual Tier Card Styling --- */
+.tier-card {
+    flex: 1; /* Makes the cards distribute space equally */
+    min-width: 280px; /* Ensures cards are readable on smaller screens */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff; /* Base background */
+
+    /* Apply Flexbox to align button to the bottom */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hover effect for a little creativity */
+.tier-card:hover {
+    transform: translateY(-5px); /* Lift the card slightly */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Tier Icon Styling */
+.tier-icon {
+    font-size: 3.5em; /* Large icon */
+    display: block;
+    margin-bottom: 10px;
+}
+
+.tier-title {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.tier-description {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 25px;
+    /* Let the description grow to push the button down */
+    flex-grow: 1; 
+    min-height: auto;
+}
+
+/* --- Button Styling for all Tiers (The 3 buttons) --- */
+.tier-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    
+    /* Centering Fix: Treat as block and use auto margins */
+    display: block; 
+    width: 100%;
+    max-width: 200px; /* Consistent button width */
+    margin-left: auto; /* Center the block horizontally */
+    margin-right: auto; /* Center the block horizontally */
+    
+    /* Keep this to push the button to the bottom of the flex card */
+    margin-top: auto; 
+    
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Color Customization for Each Tier (Existing Styles) --- */
+
+/* Certified Mentor (Tier 1: Bronze/Brown-ish) */
+.tier-certified {
+    border-top: 5px solid #a87f5e;
+}
+.certified-button {
+    background-color: #a87f5e;
+    color: white;
+}
+.certified-button:hover {
+    background-color: #926a4c;
+    transform: scale(1.02);
+}
+
+/* Distinguished Mentor (Tier 2: Silver/Gray) */
+.tier-advanced {
+    border-top: 5px solid #a3a3a3;
+}
+.advanced-button {
+    background-color: #a3a3a3;
+    color: white;
+}
+.advanced-button:hover {
+    background-color: #8c8c8c;
+    transform: scale(1.02);
+}
+
+/* Elite Mentor (Tier 3: Gold/Purple-ish, matching the app) */
+.tier-elite {
+    border-top: 5px solid #6a1b9a; /* Using the app's main purple color */
+}
+.elite-button {
+    background-color: #6a1b9a;
+    color: white;
+}
+.elite-button:hover {
+    background-color: #550f80;
+    transform: scale(1.02);
+}
+
+
+/* --- MODAL STYLING --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 650px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.modal-overlay.active {
+    display: flex; /* Show when active */
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 2em;
+    font-weight: 300;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #a87f5e; /* Matches certified color */
+}
+
+.modal-content h2 {
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #6a1b9a;
+}
+
+.modal-content p {
+    color: #555;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+/* Progress List Styling */
+.progress-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.progress-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.progress-list li:last-child {
+    border-bottom: none;
+}
+
+.progress-item-text {
+    font-weight: 500;
+    color: #333;
+}
+
+.progress-status {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.progress-status ion-icon {
+    font-size: 1.5em;
+    margin-right: 4px; /* Move icon slightly to the left of text */
+}
+
+.status-incomplete {
+    color: #ff5722; /* Red-Orange for incomplete */
+}
+
+.status-complete {
+    color: #4CAF50; /* Green for complete */
+}
+
+/* Certificate Button */
+.certificate-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    cursor: not-allowed;
+    background-color: #ccc;
+    color: #666;
+    margin-top: 20px;
+}
+
+.certificate-button.unlocked {
+    cursor: pointer;
+    color: white;
+    background-color: #6a1b9a; /* Primary app purple */
+}
+
+.certificate-button.unlocked:hover {
+    background-color: #550f80;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(106, 27, 154, 0.4);
+}
