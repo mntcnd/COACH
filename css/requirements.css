@@ -1,0 +1,281 @@
+.form-guides {
+    padding: 60px 0;
+    background: linear-gradient(to right, #290c26, #562b63, #38243e);
+    color: #fff;
+    color: #ffffff;
+}
+
+.form-guides .container {
+    display: flex;
+    padding: 40px;
+    gap: 40px;
+}
+
+.left-panel {
+    width: 40%;
+}
+
+.left-panel h2 {
+    font-size: 50px;
+}
+
+.right-panel {
+    background-color: #ffffff;
+    border-radius: 20px;
+    color: #562b63;
+    padding: 40px;
+    width: 60%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    min-height: 400px;
+    
+}
+
+#formList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#formList li {
+    padding: 10px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+#formList li .form-label {
+    background-color: #ffffff;
+    color: #562b63;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 30px;
+    margin-right: 10px;
+}
+
+#formList li.active .form-label {
+    background-color: #A987A8;
+    color: #562b63;
+}
+
+#formList li.active {
+    color: #A987A8;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+
+}
+
+.nav-buttons button {
+    background-color: #ffffff;
+    color: #562b63;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 30px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+}
+
+.nav-buttons button:hover {
+    background-color: #A987A8;
+    color: #562b63;
+}
+
+.download-button {
+    display: inline-block;
+    background-color: transparent;
+    border: 2px solid #562b63;
+    color: #562b63;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 20px 0;
+    transition: background-color 0.3s;
+}
+
+.download-button:hover {
+    background-color: #A987A8;
+    border-color: #A987A8;
+    color: #38243e;
+}
+
+.right-panel h2 {
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+
+
+
+.certification-example {
+    margin-top: 30px;
+    text-align: right;
+}
+
+.certification-example img {
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    margin-left: 350px;
+    margin-top: -100px;
+}
+
+.resume-example {
+    margin-top: 30px;
+    text-align: right;
+}
+
+.resume-example img {
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    margin-left: 350px;
+    margin-top: -100px;
+}
+
+
+.signup-example {
+    margin-top: 30px;
+    text-align: right;
+}
+
+.signup-example img {
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    margin-left: 350px;
+    margin-top: -100px;
+}
+
+/* Scoped styles for the how-to-apply section only */
+.how-to-apply {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #ffffff;
+    color: #562b63;
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  .how-to-apply h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #562b63;
+    margin-bottom: 50px;
+  }
+  
+  .how-to-apply .progress-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 70px;
+  }
+  
+  .how-to-apply .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .how-to-apply .step .circle {
+    background-color: #d7dce2;
+    color: #ffffff;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .how-to-apply .step span {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #4c5c6b;
+    transition: color 0.3s ease;
+  }
+  
+  .how-to-apply .step.active .circle {
+    background-color: #562b63;
+  }
+  
+  .how-to-apply .step.active span {
+    color: #38243e;
+    font-weight: bold;
+  }
+  
+  .how-to-apply .line {
+    height: 6px;
+    width: 80px;
+    background-color: #d7dce2;
+    border-radius: 3px;
+  }
+  
+  .how-to-apply .step-content {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .how-to-apply .step-content h2 {
+    color: #612275;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+  
+  .how-to-apply .step-content p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 1.7;
+    color: #562b63;
+  }
+  
+  /* Navigation buttons */
+  .how-to-apply .button-container {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+  }
+  
+  .how-to-apply .prev-btn,
+  .how-to-apply .next-btn {
+    border: 1px solid #562b63;
+    color: #562b63;
+    background-color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .how-to-apply .prev-btn:hover,
+  .how-to-apply .next-btn:hover {
+    background-color: #562b63;
+    color: white;
+  }
+  
+  .how-to-apply .prev-btn:disabled,
+  .how-to-apply .next-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  

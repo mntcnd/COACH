@@ -1,0 +1,450 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  margin-top: 130px; /* Adjusted to accommodate the fixed navbar */
+  color: #333;
+}
+
+/* Wrapper for top + table */
+.content-wrapper {
+  width: 90%; /* narrower layout */
+  margin: 0 auto; /* center horizontally */
+  max-width: 1400px; /* Added max-width for better structure on large screens */
+}
+
+/* --- Header Styling --- */
+.content-wrapper h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #5c087d; /* Deep purple */
+  margin-bottom: 60px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* Decorative underline */
+.content-wrapper h1::after {
+  content: "";
+  display: block;
+  width: 150px;
+  height: 4px;
+  background: linear-gradient(90deg, #5c087d, #9e66d1);
+  margin: 10px auto 40px auto;
+  border-radius: 2px;
+}
+
+/* --- Top Section Layout --- */
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-bottom: -15px;
+  gap: 20px;
+}
+
+/* Info Box (applies to Profile, Category, Graphs, Metrics) */
+.info-box {
+  background: #f8f8f8;
+  padding: 15px;
+  border-radius: 12px;
+  flex: 1;
+  text-align: center;
+  color: #561d6f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Added min-height for consistent look when content is sparse */
+  min-height: 180px; 
+}
+
+/* Profile inside info-box */
+.profile-box {
+    flex: 0 0 180px; /* Give profile box a fixed width */
+}
+.profile-box img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #561d6f;
+  margin: 0 auto 10px;
+  object-fit: cover;
+}
+.profile-box h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Progress Info (category + graphs) */
+.progress-info {
+  flex: 3;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  gap: 20px;
+}
+
+.info-box h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #e0d5e0;
+  font-size: 14px;
+  width: 80%;
+  outline: none;
+  margin: 0 auto;
+}
+
+/* --- PROGRESS CIRCLES --- */
+
+/* Base style for PASSED ACTIVITIES circle */
+.circular-progress {
+  --percent: 0%;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  /* Outer track: Dark Purple fill based on --percent */
+    background: conic-gradient(
+    from 0deg,
+    #5a2a5a 0%,
+    #9e66d1 var(--percent),
+    #e0d5e0 var(--percent)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 auto 10px auto; /* Center and add margin below */
+  color: #561d6f; 
+  position: relative;
+}
+
+/* Inner white circle */
+.circular-progress::before {
+  content: "";
+  position: absolute;
+  width: 85px; 
+  height: 85px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.progress-value {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* --- COMPLETION/AVERAGE CIRCLE (.circle) --- */
+.circle {
+  --percent: 0%; /* Defined in PHP/inline style */
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  /* Gradient Fill (Purple) */
+  background: conic-gradient(
+    from 0deg,
+    #5a2a5a 0%,
+    #9e66d1 var(--percent),
+    #e0d5e0 var(--percent)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 10px auto; /* Center and add margin below */
+  position: relative;
+}
+
+.circle span {
+  position: relative; /* Must be relative to sit above the inner track */
+  z-index: 1;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  /* Inner white ring to cut the gradient circle */
+  background-color: #fff;
+  border-radius: 50%;
+  width: 83%;
+  height: 83%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #561d6f; /* Text color inside the inner circle */
+}
+
+/* The label beneath the circle/metric */
+.label {
+  margin-top: 5px; /* Reduced margin to 5px */
+  font-size: 13px;
+  font-weight: 550;
+  color: #561d6f;
+}
+
+/* --- Text Boxes (Average Performance & Encouragement) --- */
+.text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align from the top for consistent spacing */
+  align-items: center;
+}
+
+.metric-display {
+  /* Match circle height for alignment */
+  min-height: 110px;
+  width: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 13px auto; 
+}
+
+.main-metric {
+  font-size: 50px; /* Reduced from 57px for better fit */
+  font-weight: bold;
+}
+
+.text-tip {
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #561d6f;
+  background-color: #e0d5e0;
+  padding: 15px; /* Reduced padding */
+  border-radius: 8px;
+  min-height: 150px; /* Min height to match other boxes */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 90%;
+}
+
+
+/* --- Table Styling --- */
+.table-container {
+  width: 100%;
+}
+table {
+  width: 100%; /* Changed from 90% to 100% to fill content-wrapper width */
+  margin: 20px auto; 
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+}
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+th {
+  background: #fffcfc;
+  font-weight: 600; /* Increased font weight */
+  color: #5c087d;
+  text-transform: uppercase;
+}
+td {
+  vertical-align: middle;
+}
+/* Ensure Feedback button style is incorporated */
+td button {
+    background-color: #5c087d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.2s;
+}
+td button:hover {
+    background-color: #7b249b;
+}
+
+/* Score/Progress Bar Container */
+.score-bar {
+  width: 100px; /* Fixed width for consistency */
+  background: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 24px;
+  position: relative;
+}
+
+/* Score Fill */
+.score-bar span {
+  display: block;
+  height: 100%;
+  line-height: 24px;
+  text-align: right;
+  padding-right: 8px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #5a2a5a, #9e66d1);
+  min-width: 10px; /* Prevent text from disappearing if width is 0 */
+}
+
+/* --- Responsive Adjustments (Optional but Recommended) --- */
+@media (max-width: 1024px) {
+    .top-section {
+        flex-direction: column;
+    }
+    .profile-box {
+        flex: 1;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+    .profile-box img {
+        margin: 0 15px 0 0;
+    }
+    .progress-info {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .progress-info .info-box {
+        flex-basis: 48%; /* Two boxes per row */
+    }
+    .text-tip {
+        min-height: 80px;
+    }
+    .table-container {
+        overflow-x: auto;
+    }
+    table {
+        min-width: 700px; /* Ensure table is readable on smaller screens */
+    }
+}
+
+
+/* --- Modal Styles (Copied from PHP for completeness) --- */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); 
+    padding-top: 60px;
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 30px; /* Slightly increased padding */
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.modal-content h2 {
+    color: #5c087d;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+#modalFeedbackText {
+    white-space: pre-wrap; /* Preserve whitespace and line breaks */
+    font-size: 20px;
+    line-height: 1.6;
+    color: #333;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+}
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* --- Logout Dialog Styles (Copied from PHP for completeness) --- */
+.logout-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logout-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.logout-content h3 {
+    margin-top: 0;
+    color: #562b63;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.logout-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    font-size: 1rem;
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.dialog-buttons button {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#cancelLogout {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+#cancelLogout:hover {
+    background-color: #e0e0e0;
+}
+
+#confirmLogoutBtn {
+    background: linear-gradient(to right, #5d2c69, #8a5a96);
+    color: white;
+}
+
+#confirmLogoutBtn:hover {
+    background: #5d2c69;
+}

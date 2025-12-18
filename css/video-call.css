@@ -1,0 +1,137 @@
+:root {
+  --bg: #202124;
+  --surface: #2d2e30;
+  --control-bg: rgba(32, 33, 36, 0.8);
+  --muted: #9aa0a6;
+  --accent: #1a73e8;
+  --danger: #ea4335;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background: var(--bg);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+#top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+#top-bar .left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#top-bar .meeting-title {
+  font-weight: 500;
+  font-size: 16px;
+  color: #e8eaed;
+}
+
+#top-bar .right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+#top-bar img.profile {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid transparent;
+}
+
+.app-shell {
+  position: relative;
+  height: 100vh;
+  padding-top: 56px;
+  display: flex;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+#video-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#jitsi-container {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+/* Tablet */
+@media (max-width: 1024px) {
+  #top-bar {
+    padding: 0 12px;
+  }
+  
+  #top-bar .meeting-title {
+    font-size: 15px;
+  }
+}
+
+/* --- MOBILE OPTIMIZATIONS (768px and below) --- */
+@media (max-width: 768px) {
+  :root {
+    --safe-area-top: env(safe-area-inset-top, 0px);
+    --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-area-left: env(safe-area-inset-left, 0px);
+    --safe-area-right: env(safe-area-inset-right, 0px);
+  }
+  
+  .app-shell {
+    padding-top: calc(56px + var(--safe-area-top));
+    padding-bottom: var(--safe-area-bottom);
+    padding-left: var(--safe-area-left);
+    padding-right: var(--safe-area-right);
+  }
+  
+  #top-bar {
+    padding-top: var(--safe-area-top);
+    height: calc(56px + var(--safe-area-top));
+    padding-left: calc(16px + var(--safe-area-left));
+    padding-right: calc(16px + var(--safe-area-right));
+  }
+
+  #video-area {
+    padding: 0;
+  }
+
+  #jitsi-container {
+    border-radius: 0; /* Fullscreen on mobile */
+  }
+}

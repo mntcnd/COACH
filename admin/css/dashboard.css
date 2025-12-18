@@ -1,0 +1,562 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 2px solid red; */
+}
+
+:root {
+    --primary-color: #6a2c70;
+    --nav-color: #693B69;
+    --dash-color: #fff;
+    --logo-color: #fff;
+    --text-color: #000;
+    --text-color-light: #333;
+    --white: #fff;
+    --border-color: #ccc;
+    --toggle-color: #fff;
+    --title-icon-color: #fff;
+
+    --time-03: all 0.3s linear;
+    --time-02: all 0.2s linear;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--dash-color);
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+
+body.dark {
+    --primary-color: #3a3b3c;
+    --nav-color: #181919;
+    --dash-color: #262629;
+    --logo-color: #ecd4ea;
+    --text-color: #ecd4ea;
+    --text-color-light: #ccc;
+    --white: #aaa;
+    --border-color: #404040;
+    --toggle-color: #693b69;
+    --title-icon-color: #ddd;
+}
+
+::-webkit-scrollbar{
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track{
+    background-color: #ccc;
+    border-radius: 100px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--primary-color);
+    border-radius: 100px;
+}
+
+.admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 20px 15px;
+    margin-left: -17px;
+    margin-bottom: -25px;
+  }
+  
+  .admin-profile img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: -5px solid #ffffff33;
+  }
+  
+  .admin-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+  
+  .admin-name {
+    font-weight: 600;
+    color: #ffffff;
+    font-size:18px;
+  }
+  
+  .admin-role {
+    font-size: 12px;
+    color: #d0d0d0;
+  }
+  
+  .verified-icon {
+    color: white;
+    font-size: 18px;
+    margin-left: auto;
+  }
+
+  nav.close .admin-profile {
+    padding: 15px 0;
+    justify-content: center;
+  }
+  
+  nav.close .admin-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Ensure circular shape */
+    margin: 0 auto;
+  }
+  
+  /* Properly hide name and role in collapsed state */
+  nav.close .admin-text {
+    display: none;
+  }
+  
+  nav.close .verified-icon {
+    display: none;
+  }
+  
+  /* Add this to your existing CSS file (admin_dashboardstyle.css) */
+/* Apply same style to all nav links, including Logout */
+nav .menu-items li a .links,
+nav .menu-items li a.logout-link {
+    font-size: 16px;   /* same for all */
+    color: var(--white);
+    transition: var(--time-02);
+}
+
+/* Fix for bottom links in navigation */
+nav .menu-items {
+    margin-top: -10px;
+    padding-top: -100px;
+    margin-left: -15px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 100px); /* Adjusted height */
+    justify-content: space-between;
+}
+
+
+nav .menu-items .bottom-link li {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+nav .menu-items .bottom-link li a {
+    margin-top: -70px;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    text-decoration: none;
+}
+
+nav .menu-items .bottom-link li a ion-icon {
+    margin-right: 10px;
+}
+
+/* Dark mode toggle specific styling */
+nav .menu-items .bottom-link .mode {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+nav .menu-items .bottom-link .mode ion-icon {
+    color: var(--white);
+    font-size: 24px;
+    min-width: 45px;
+}
+
+/* Make sure the bottom links are properly visible in collapsed state */
+nav.close .menu-items .bottom-link li a .links,
+nav.close .menu-items .bottom-link .mode .links {
+    opacity: 0;
+}
+
+.logout-link .links {
+    transition: var(--time-02);
+}
+
+nav.close .logout-link .links {
+    opacity: 0;
+    display: none;
+}
+nav.close .bottom-link .links {
+    display: none;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: var(--nav-color);
+    padding: 10px 0 10px 10px;
+    transition: var(--time-03);
+    overflow-x: hidden;
+}
+
+nav.close {
+    width: 72px;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+}
+
+nav .logo-image {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+nav .logo-image img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+}
+
+nav .logo .logo-name {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--logo-color);
+    margin-left: 14px;
+    white-space: nowrap;
+    transition: var(--time-02);
+}
+
+nav.close .logo .logo-name {
+    opacity: 0;
+}
+
+nav .menu-items {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 90px);
+    justify-content: space-between;
+
+}
+
+nav .menu-items li {
+    list-style: none;
+}
+
+nav .menu-items li a {
+    display: flex;
+    align-items: center;
+    height: 45px;   /* smaller than 50px but not cramped */
+    text-decoration: none;
+    padding: 6px 10px; /* balanced padding */
+}
+
+
+nav .menu-items li.active a {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    position: relative;
+}
+
+nav .menu-items li a ion-icon {
+    color: var(--white);
+    font-size: 24px;
+    min-width: 45px;
+}
+
+nav .menu-items li a .links {
+     font-size: 16px;   /* balanced size */
+    color: var(--white);
+    transition: var(--time-02);
+}
+
+nav.close .menu-items li a .links {
+    opacity: 0;
+}
+
+nav .menu-items li.active a {
+    background-color: var(--dash-color);
+}
+
+nav .menu-items li.active a:before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 0;
+    top: -40px;
+    border-radius: 50%;
+    box-shadow: 20px 20px var(--dash-color);
+    pointer-events: none;
+}
+
+nav .menu-items li.active a:after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 0;
+    bottom: -40px;
+    border-radius: 50%;
+    box-shadow: 20px -20px var(--dash-color);
+    pointer-events: none;
+}
+
+
+nav .menu-items li.active a .links {
+    color: var(--primary-color);
+}
+
+
+body.dark nav .menu-items li.active a .links,
+body.dark nav .menu-items li.active a ion-icon {
+    color: var(--text-color);
+}
+
+nav .menu-items li.active a ion-icon {
+    color: var(--primary-color);
+}
+
+nav .menu-items .mode {
+    display: flex;
+}
+
+.menu-items .darkToggle {
+    position: absolute;
+    right: 15px;
+    width: 45px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.darkToggle .switch {
+    position: relative;
+    display: inline-block;
+    height: 22px;
+    width: 40px;
+    border-radius: 25px;
+    background-color: var(--toggle-color);
+}
+
+.darkToggle .switch:before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--nav-color);
+    transition: var(--time-02);
+}
+
+body.dark .switch::before {
+    left: 20px;
+}
+
+.dashboard {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    min-height: 100vh;
+    background-color: var(--dash-color);
+    padding: 10px 15px;
+    transition: var(--time-03);
+}
+
+nav.close~.dashboard {
+    width: calc(100% - 72px);
+    left: 72px;
+}
+
+.dashboard .top {
+    position: fixed;
+    background-color: var(--dash-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    left: 250px;
+    top: 0;
+    padding: 10px 15px;
+    width: calc(100% - 250px);
+    transition: var(--time-03);
+    z-index: 100;
+}
+
+nav.close~.dashboard .top {
+    width: calc(100% - 72px);
+    left: 72px;
+}
+
+.dashboard .top .navToggle {
+    font-size: 25px;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.top img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.dashboard .top .searchBox {
+    position: relative;
+    height: 45px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 0 10px;
+    width: 80%;
+    margin: 0 30px;
+}
+
+.dashboard .top .searchBox:focus-within {
+    border-color: #A987A8;
+    box-shadow: 0 0 5px #693B69;
+}
+
+.top .searchBox input {
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    border: none;
+    background-color: var(--dash-color);
+    color: var(--text-color);
+}
+
+.top .searchBox input:focus {
+    outline: none;
+}
+
+.top .searchBox ion-icon {
+    font-size: 22px;
+    color: var(--text-color-light);
+    padding: 0 15px;
+}
+
+@media (max-width:768px) {
+    nav {
+        width: 72px;
+    }
+
+    nav.close {
+        width: 250px;
+    }
+    nav .logo .logo-name {
+        opacity: 0;
+    }
+
+    nav.close .logo .logo-name {
+        opacity: 1;
+    }
+
+    .menu-items li a .links {
+        opacity: 0;
+    }
+
+    nav.close .menu-items li a .links {
+        opacity: 1;
+    }
+
+    .dashboard {
+        width: calc(100% - 72px);
+        left: 72px;
+    }
+
+    nav.close~.dashboard {
+        width: calc(100% - 250px);
+        left: 250px;
+    }
+
+    .dashboard .top {
+        width: calc(100% - 72px);
+        left: 72px;
+    }
+
+    nav.close~.dashboard .top {
+        width: calc(100% - 250px);
+        left: 250px;
+    }
+
+
+    .container .boxes .box {
+        width: calc(100%/2 - 15px);
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 560px) {
+    .container .boxes .box{
+        width: 100%;
+    }
+    .activity-data .data-list {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 425px) {
+    nav{
+        transform: translateX(-73px);
+    }
+    nav.close{
+        transform: translateX(0);
+        width: 73px;
+    }
+    
+
+    nav.close .logo .logo-name {
+        opacity: 0;
+    }
+
+    nav.close .menu-items li a .links {
+        opacity: 0;
+    }
+    .dashboard {
+        width: 100%;
+        left: 0px;
+    }
+
+    nav.close~.dashboard {
+        width: calc(100% - 72px);
+        left: 72px;
+    }
+
+    .dashboard .top {
+        width: 100%;
+        left: 0;
+    }
+}
+
+nav {
+    /* Assuming a fixed nav with full height, typically set here */
+    display: flex; /* Ensures content is laid out vertically */
+    flex-direction: column; 
+    height: 100vh; /* Full viewport height */
+    /* ... other nav styles ... */
+}
+
+.menu-items {
+    /* This makes the main link area take all remaining space */
+    flex-grow: 1; /* Already present in feedbacks.php */
+    
+    /* ADD these two properties: */
+    overflow-y: auto; /* Adds a scrollbar when content is too long */
+    display: flex; /* Make it a flex container */
+    flex-direction: column; /* Stack the nav links and bottom links vertically */
+    justify-content: space-between; /* Pushes the bottom-link to the bottom */
+}
+
+.navLinks {
+    /* ADD: This allows the main links to take up space and push the bottom link down */
+    margin-bottom: auto; 
+}

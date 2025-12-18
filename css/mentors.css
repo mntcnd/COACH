@@ -1,0 +1,564 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    font-family: "Ubuntu", sans-serif;
+    text-transform: none;
+}
+
+
+
+.featured-courses {
+    padding: 110px 20px;
+    text-align: center;
+    background-color: #ffffff;
+    padding-bottom: 1rem; /* Reduce this value to lessen space */
+    margin-bottom: -3rem;
+  }
+
+.section-header small {
+    color: #666;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #693B69;
+    margin: 10px 0;
+  }
+  
+  .section-header .description {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    --purple-color: 270;
+    --white-color: hsl(0, 0%, 100%);
+    --black-color: hsl(0, 0%, 0%);
+  
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: "Montserrat Alternates", serif;
+    --biggest-font-size: 2rem;
+    --big-font-size: 1.5rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+  
+    /*========== Font weight ==========*/
+    --font-regular: 400;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+  }
+  
+  /*========== Responsive typography ==========*/
+  @media screen and (min-width: 1150px) {
+    :root {
+      --biggest-font-size: 3rem;
+      --big-font-size: 2.5rem;
+      --normal-font-size: 1rem;
+      --small-font-size: .875rem;
+    }
+  }
+  
+  /*=============== BASE ===============*/
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  body {
+    font-family: var(--body-font);
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /*=============== REUSABLE CSS CLASSES ===============*/
+  .container {
+    max-width: 1470px;
+    margin-inline: 1.5rem;
+  }
+  
+  .card-yellow {
+    --hue: var(--purple-color);
+  }
+  
+  .card-green {
+    --hue: var(--purple-color) ;
+  }
+  
+  .card-red {
+    --hue: var(--purple-color);
+  }
+  
+  .card-blue {
+      --hue: var(--purple-color);
+    }
+  
+  /*=============== CARD ===============*/
+  .card {
+    position: relative;
+    padding-block: 1rem; /* reduced from 6rem to decrease top & bottom padding */
+    padding-top: 3rem;
+  }
+
+
+  .cardlast {
+    position: relative;
+    padding-top: 1rem;
+    padding-bottom: 5rem;
+  }
+  
+  .card__bg,
+  .card__blur {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+  }
+  
+  .card__bg {
+      object-fit: cover;
+      object-position: center;
+  }
+  
+  .card__blur {
+      backdrop-filter: blur(24px);
+  }
+  
+  .card__container {
+      position: relative;
+      display: grid;
+      grid-template-columns: 260px;
+      justify-content: center;
+      gap: 2rem;
+  }
+  
+  .card__article {
+      position: relative;
+      border-radius: 2rem;
+      overflow: hidden;
+      width: 230px; /* Reduce from original value if it's larger */
+      height: 340px;
+  }
+  
+  .card__img {
+      border-radius: 2rem;
+      transition: transform .4s;
+
+  }
+  
+  .card__shadow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, hsla(0, 0%, 0%, 0) 70%, hsla(0, 0%, 0%) 100%);
+  }
+  
+  .card__data {
+      color: var(--white-color);
+      position: absolute;
+      left: 1.5 rem;
+      bottom: 2rem;
+  }
+  
+  .card__name {
+      font-size: 1.5rem;
+      margin-bottom: .25rem;
+      margin-left: 1rem;
+  }
+  
+  .card__profession {
+      display: block;
+      font-size: var(--small-font-size);
+      margin-left: 1rem;
+  }
+  
+  .card__clip {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: hsl(var(--hue), 76%, 57%);
+      box-shadow: 0 0 16px hsl(var(--hue), 13, 242);
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      color: var(--black-color);
+      z-index: 5;
+      cursor: pointer;
+      transition: transform .4s;
+  }
+  
+  .card__article:hover .card__img {
+      transform: scale(1.3);
+  }
+  
+  /*=============== CARD INFO ===============*/
+  .info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: hsl(0, 0%, 0%, .1);
+      backdrop-filter: blur(12px);
+      padding: 3rem 1.5rem 1.5rem;
+      color: var(--white-color);
+      clip-path: circle(8px at 88% 9%);
+      transition: clip-path .5s ease-in-out;
+  }
+  
+  .info__name {
+      font-size: 1rem;
+      margin-bottom: .5rem;
+  }
+  
+  .info__description {
+      font-size: var(--smallest-font-size);
+      margin-bottom: 1rem;
+      font-size: 0.8rem;
+      line-height: 1.2;
+  }
+  
+  .info__button {
+      display: inline-flex;
+      background-color: hsl(var(--hue), 90%, 50%);
+      box-shadow: 0 0 12px hsl(var(--hue), 90%, 50%);
+      padding: .5rem .75rem;
+      border-radius: .5rem;
+      color: var(--black-color);
+      font-size: var(--small-font-size);
+      font-weight: var(--font-semi-bold);
+      transition: box-shadow .4s;
+  }
+  
+  .info__button:hover {
+      box-shadow: 0 0 20px hsl(var(--hue), 90%, 50%);
+  }
+  
+  .info__social {
+      position: absolute;
+      left: 1.5rem;
+      bottom: 1.5rem;
+      display: flex;
+      column-gap: .5rem;
+  }
+  
+  .info__link {
+      background-color: hsl(var(--hue), 90%, 50%);
+      box-shadow: 0 0 12px hsl(var(--hue), 90%, 50%);
+      width: 2rem;
+      height: 2rem;
+      border-radius: .75rem;
+      display: grid;
+      place-items: center;
+      color: var(--black-color);
+      transition: transform .4s;
+  }
+  
+  .info__link:hover {
+      transform: translateY(-.25rem);
+  }
+  
+  /* Rotate icon */
+  .card__article:hover .card__clip {
+      transform: rotate(-45deg);
+  }
+  
+  /* Clip path animation */
+  .info:hover,
+  .card__clip:hover ~ .info {
+      clip-path: circle(100%);
+  }
+  
+
+
+
+  
+
+  .project-cta {
+    background: linear-gradient(135deg, #693B69, #af7caf);
+    color: white;
+    padding: 40px 30px;
+    border-radius: 16px;
+    max-width: 1000px;
+    margin: 60px auto;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cta-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .cta-text h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .cta-text p {
+    margin: 10px 0 0;
+    max-width: 600px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #e6f0ff;
+  }
+  
+  .cta-button .btn-outline {
+    padding: 10px 22px;
+    background: white;
+    color: #693B69;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .cta-button .btn-outline:hover {
+    background-color: #e4c8f5;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  .section-offers {
+    background: #fff;
+    padding: 4rem 2rem;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .section-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+  }
+  
+  .offers-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .offer-card {
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    width: 300px;
+    transition: transform 0.3s;
+  }
+  
+  .offer-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .offer-icon {
+    width: 80px;
+    height: auto;
+    margin: 0 auto 1rem auto; 
+  }
+  
+  .offer-card h3 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.25rem;
+  }
+  
+  .offer-card p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    color: #555;
+  }
+  
+  .offer-card ul {
+    text-align: left;
+    margin: 1rem 0;
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .offer-card ul li {
+    margin-bottom: 0.5rem;
+    color: #710ea2;
+    font-weight: bold;
+  }
+  
+  .offer-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .offer-button:hover {
+    background-color: #0056b3;
+  }
+  
+
+
+.testimonial-section {
+  background: linear-gradient(to right, #693B69, #562b63, #af7caf);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Adjust as needed */
+  font-family: Arial, sans-serif; /* A common sans-serif font */
+  padding: 50px 20px; /* Reduced vertical padding */
+  box-sizing: border-box;
+}
+
+.testimonial-container {
+    max-width: 850px; /* Reduced from 1000px for a more compact card */
+    margin: 0 auto;
+    display: flex;
+    align-items: stretch; /* Stretch content and image to the same height */
+    gap: 0; /* Removed gap, as the image and content are right next to each other */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Stronger shadow for lift */
+    overflow: hidden;
+}
+
+.testimonial-image {
+    flex-shrink: 0; 
+    width: 35%; /* Set a percentage width for the purple image side */
+    /* Assuming the image itself has the purple background as shown in the file */
+    /* Set a specific height if you need control, e.g., height: 400px; */
+}
+
+.testimonial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 4. CONTENT STYLING */
+.testimonial-content {
+    padding: 40px; /* Adjust padding inside the white box */
+    width: 65%; /* Remaining width for the content side */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes author to the bottom */
+    text-align: left;
+}
+
+.stars {
+  color: #ffc107; /* Gold color for stars */
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.testimonial-text {
+    /* Allows the quote text to grow and push the author down */
+    flex-grow: 1; 
+    margin-bottom: 30px; 
+}
+.growth-text {
+    font-size: 1.4em; /* Smaller, but still prominent */
+    font-weight: 700;
+    color: #333;
+    line-height: 1.4;
+    margin: 10px 0; /* Add vertical spacing between lines */
+}
+
+.lorem-ipsum {
+  font-size: 0.9em;
+  line-height: 1.6;
+  color: #555;
+  margin-top: 15px;
+}
+
+.testimonial-author p {
+  font-size: 0.8em;
+  color: #777;
+  text-transform: uppercase;
+  margin-top: 20px;
+  border-top: 1px solid #eee; /* Separator line */
+  padding-top: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .testimonial-container {
+    flex-direction: column;
+  }
+
+  .testimonial-image {
+    padding: 10px;
+  }
+
+  .testimonial-content {
+    padding: 30px;
+  }
+
+  .growth-text {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-content {
+    padding: 20px;
+  }
+
+  .growth-text {
+    font-size: 1.3em;
+  }
+
+  .lorem-ipsum {
+    font-size: 0.8em;
+  }
+
+  .testimonial-author p {
+    font-size: 0.7em;
+  }
+}
+
+.quote-title {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #333; /* Darker color for title */
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

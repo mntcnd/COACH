@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+  
+  .footer {
+    background: linear-gradient(to right, #290c26, #562b63, #38243e);
+    color: #fff;
+    padding: 60px 0 30px;
+    border-top-left-radius: 80px;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+  }
+  
+  .footer-section {
+    flex: 1;
+    margin: 20px;
+    min-width: 200px;
+  }
+  
+  .footer-section h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #fff;
+    font-weight: bold;
+    border-bottom: 2px solid #fff;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+  
+  .footer-section .logo {
+    font-size: 24px;
+    color: #fff;
+  }
+  
+  .footer-section p, .footer-section a, .footer-section li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ddd;
+    text-decoration: none;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+  }
+  
+  .footer-section li a:hover {
+    color: #fff;
+  }
+  
+  .email-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 8px 0;
+  }
+  
+  .email-box i {
+    color: #ccc;
+    margin-right: 10px;
+  }
+  
+  .email-box input {
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    flex: 1;
+  }
+  
+  
+  .email-box button {
+    background-color: #fff;
+    border: none;
+    color: #290c26;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+    transition: background 0.3s;
+  }
+
+  .email-box button:hover {
+    background-color: #ddd;
+  }
+  
+  .social-icons {
+    margin-top: 15px;
+  }
+  
+  .social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+    color: #fff;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    transform: scale(1.2);
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding: 20px 0 0;
+    border-top: 1px solid #444;
+    font-size: 14px;
+    color: #ccc;
+  }
+  

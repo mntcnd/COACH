@@ -1,0 +1,306 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+body {
+  background: #f7f9fc;
+  color: #333;
+}
+
+.container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 20px auto;
+  margin-top: 70px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 45px;
+  color: #5e2b97; /* Purple theme */
+}
+
+.logo span {
+  background: #6c4ab6;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px 15px;
+  margin-right: 10px;
+}
+
+.date-range {
+  background: #f2f4f8;
+  border: 1px solid #c7b9e9;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.date-range:hover {
+  background: #e6dfff;
+  border-color: #a487d4;
+}
+
+/* Cards */
+.card, .card1 {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(98, 64, 145, 0.2);
+  transition: 0.3s;
+}
+
+.card:hover, .card1:hover {
+  box-shadow: 0 4px 10px rgba(98, 64, 145, 0.3);
+}
+
+/* Progress bars (Performance Tracker) */
+.progress {
+  margin: 15px 0;
+}
+
+.progress label {
+  font-size: 14px;
+  color: #555;
+}
+
+.progress-bar {
+  background: #eee;
+  border-radius: 10px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.bar.purple { background: #6a0dad; }
+.bar.green  { background: #571a78; }
+
+/* Flex container for Performance Tracker + New Users */
+.top-cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; /* para pareho taas */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Performance Tracker (left) */
+.card1.performance-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 320px;
+}
+
+/* New Users (right) */
+.top-cards .card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 320px;
+}
+
+/* Make charts responsive */
+.top-cards .card canvas {
+  width: 100% !important;
+  height: 300px !important;
+}
+
+/* Row for Link clicks + Page likes */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Campaign table spans full width under the row */
+.table-card {
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Link clicks / Page likes */
+.big-number {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #5e2b97;
+}
+
+.increase {
+  color: #7a5ad6;
+  font-size: 14px;
+}
+
+/* Campaign Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+table thead {
+  background: #e6dfff;
+  color: #4a2d84;
+}
+
+table th, table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table tr:hover {
+  background: #f3ebff;
+}
+
+/* App performance chart placeholder */
+.chart {
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: 1px dashed #b8a3e2;
+  font-size: 14px;
+  color: #7a5ad6;
+}
+
+/* Save PDF Button */
+.btn {
+  background: #6c4ab6;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #5e2b97;
+}
+
+/* Responsive behavior */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .top-cards { flex-direction: column; } /* stack vertically on small screens */
+}
+
+/* Modal background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+/* Modal content */
+.modal-content {
+  background: #fff;
+  margin: 8% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 60%;
+  max-height: 70vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Close button */
+.modal-content #closeModal {
+  font-size: 22px;
+  font-weight: bold;
+  color: #444;
+}
+
+.modal-content #closeModal:hover {
+  color: red;
+  cursor: pointer;
+}
+
+/* View All Button */
+.view-all-container {
+  text-align: right;
+  margin-top: 15px;
+}
+
+.btn-view-all {
+  display: inline-block;
+  background: #6c4ab6;
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-view-all:hover {
+  background: #5e2b97;
+}
+
+.logo1 {
+    display: flex; /* Enables Flexbox for side-by-side alignment */
+    align-items: center; /* Vertically centers the image and text */
+    gap: 20px; /* Adds space between the logo image and the text */
+    /* Remove any unnecessary padding/margin that might be interfering */
+}
+
+/* 2. Style for the container wrapping the image */
+.logo-image1 {
+    /* Sets a fixed size for the icon container */
+    width: 80px; /* Adjusted size here */
+    height: 80px; /* Adjusted size here */
+    min-width: 80px; /* Ensures it doesn't shrink */
+    /* You may need border-radius or background color here if your image doesn't fill the space */
+}
+
+/* 3. Style the actual image inside the container */
+.logo-image1 img {
+    width: 100%; /* Makes the image fill its container */
+    height: 100%;
+    object-fit: contain; /* Ensures the image scales correctly without cropping */
+}
+
+/* 4. Style for the main title text */
+.logo-name1 {
+    /* Increase the font size dramatically for the main title */
+    font-size: 36px; /* Adjusted size here */
+    font-weight: 700; /* Bolder text for better emphasis */
+    color: #4a0072; /* Example color, adjust to match your purple theme */
+}

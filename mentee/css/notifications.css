@@ -1,0 +1,189 @@
+body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 80px auto 30px;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #6b2a7a;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .notification-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .mark-all-btn {
+            background-color: #6b2a7a;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        
+        .mark-all-btn:hover {
+            background-color: #5a2366;
+        }
+        
+        .notification-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .notification-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 15px;
+            transition: transform 0.2s;
+            border-left: 4px solid #6b2a7a;
+        }
+        
+        .notification-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .notification-card.unread {
+            background-color: #f9f3fc;
+        }
+        
+        .notification-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .notification-time {
+            color: #777;
+            font-size: 12px;
+        }
+        
+        .notification-message {
+            margin-bottom: 15px;
+        }
+        
+        .notification-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .booking-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .booking-detail {
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .booking-detail ion-icon {
+            color: #6b2a7a;
+        }
+        
+        .action-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .view-btn {
+            background-color: #6b2a7a;
+            color: white;
+        }
+        
+        .view-btn:hover {
+            background-color: #5a2366;
+        }
+        
+        .mark-read-btn {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .mark-read-btn:hover {
+            background-color: #5a6268;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 50px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .empty-icon {
+            font-size: 60px;
+            color: #6b2a7a;
+            margin-bottom: 20px;
+        }
+        
+        .empty-text {
+            color: #555;
+            margin-bottom: 30px;
+        }
+        
+        .message {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            border-left: 4px solid #6b2a7a;
+        }
+        
+        .notification-badge {
+          position: absolute;
+          top: -5px;
+          right: -5px;
+          background-color: #dc3545;
+          color: white;
+          border-radius: 50%;
+          width: 18px;
+          height: 18px;
+          font-size: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .notification-icon {
+          position: relative;
+          margin-left: 15px;
+        }
+        
+        .nav-profile {
+          display: flex;
+          align-items: center;
+        }

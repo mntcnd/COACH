@@ -1,0 +1,228 @@
+/* Original styles from view_resource.css */
+body {
+  background: #f3f0fa; /* Light purple background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Common sans-serif stack */
+  margin: 0;
+  padding: 20px; /* Slightly reduced padding */
+  color: #333; /* Default text color */
+  line-height: 1.6; /* Improve readability */
+}
+
+.viewer-container {
+  width: 100%;
+  max-width: 1300px; /* Slightly wider container */
+  margin: 20px auto; /* Add top/bottom margin */
+  background: white;
+  padding: 25px 30px; /* Adjust padding */
+  border-radius: 10px; /* Slightly less rounded */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  border: 1px solid #e0e0e0; /* Subtle border */
+}
+
+.viewer-title {
+  text-align: center;
+  font-size: 2em; /* Relative font size */
+  margin-bottom: 25px;
+  color: #4b2991; /* Original purple color */
+  font-weight: 600; /* Slightly bolder */
+}
+
+/* --- Styles moved from view_resource.php --- */
+
+.viewer-frame {
+  width: 100%;
+  min-height: 600px; /* Minimum height for the content frame */
+  border: 1px solid #d1c4e9; /* Lighter purple border */
+  margin-bottom: 25px; /* Increased bottom margin */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9; /* Light grey background for frame */
+  position: relative;
+  overflow: hidden; /* Hide content overflow */
+  border-radius: 8px; /* Rounded corners for the frame */
+}
+
+.viewer-frame iframe,
+.viewer-frame video {
+  display: block;
+  width: 100%;
+  height: 100%; /* Make iframe/video fill the frame */
+  border: none; /* Remove default borders */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.viewer-frame img {
+  position: static; /* Images position normally */
+  display: block; /* Ensure it takes block space */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 600px; /* Limit image height */
+  width: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Ensure image fits container */
+  margin: auto; /* Center image if smaller than frame */
+}
+
+.viewer-frame .message-overlay {
+  padding: 25px; /* More padding */
+  text-align: center;
+  color: #555;
+  z-index: 1; /* Ensure message is above iframe */
+  position: relative; /* Position relative to the frame */
+  background: rgba(249, 249, 249, 0.95); /* Slightly less transparent */
+  border-radius: 8px;
+  margin: 15px; /* Margin around the message box */
+  max-width: 80%; /* Prevent message box from being too wide */
+}
+
+.viewer-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Allow buttons to wrap */
+  gap: 15px; /* Space between buttons */
+  margin-top: 15px; /* Add space above actions */
+  padding-top: 15px; /* Add padding top */
+  border-top: 1px solid #eee; /* Separator line */
+}
+
+.viewer-actions .btn {
+  background-color: #6a44a2; /* Original button color */
+  color: white;
+  padding: 10px 20px; /* Adjusted padding */
+  text-decoration: none;
+  font-weight: 600; /* Bolder font */
+  border: none;
+  border-radius: 6px; /* Consistent rounding */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease; /* Smooth transitions */
+  font-size: 0.95em; /* Slightly smaller font */
+  margin: 0; /* Reset margin */
+  display: inline-flex; /* Align icon and text if needed */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.4; /* Adjust line height */
+}
+
+.viewer-actions .btn:hover {
+  background-color: #55317e; /* Darker shade on hover */
+  transform: translateY(-1px); /* Slight lift effect */
+}
+
+.viewer-actions .btn:active {
+  transform: translateY(0px); /* Press effect */
+}
+
+/* Specific style for back button if needed */
+.viewer-actions .back-btn {
+  background-color: #9e9e9e; /* Grey color */
+}
+
+.viewer-actions .back-btn:hover {
+  background-color: #757575; /* Darker grey on hover */
+}
+
+.error-message {
+  color: #d9534f; /* Red for errors */
+  font-weight: bold;
+  margin-top: 5px; /* Space above error */
+}
+
+.info-message {
+  color: #555;
+  font-style: italic;
+  font-size: 0.9em; /* Smaller font for info */
+  margin-top: 5px;
+}
+
+.info-message code { /* Style code tag within info messages */
+  background-color: #e0e0e0;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.viewer-explanation {
+  text-align: center;
+  margin-bottom: 20px; /* More space below explanation */
+  padding: 15px; /* More padding */
+  background-color: #fffbeb; /* Light yellow background */
+  border: 1px solid #fde047; /* Yellow border */
+  border-radius: 8px;
+  color: #b45309; /* Darker yellow/brown text */
+  font-size: 0.95em;
+}
+
+.viewer-explanation p {
+  margin: 5px 0; /* Space between paragraphs */
+}
+
+.viewer-explanation code { /* Style code tag within explanation */
+  background-color: #fef3c7; /* Lighter yellow for code */
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: monospace;
+  color: #92400e; /* Darker text for code */
+  word-break: break-all; /* Break long URLs */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .viewer-container {
+      padding: 20px;
+      margin: 15px;
+  }
+  .viewer-title {
+      font-size: 1.8em;
+  }
+  .viewer-frame {
+      min-height: 450px; /* Reduce height on smaller screens */
+  }
+  .viewer-actions {
+      gap: 10px; /* Reduce gap */
+  }
+  .viewer-actions .btn {
+      padding: 8px 15px;
+      font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+      padding: 10px;
+  }
+  .viewer-container {
+      padding: 15px;
+      margin: 10px;
+      border-radius: 8px;
+  }
+  .viewer-title {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+  }
+  .viewer-frame {
+      min-height: 400px;
+  }
+  .viewer-explanation {
+      font-size: 0.9em;
+      padding: 10px;
+  }
+  .viewer-actions .btn {
+      width: calc(50% - 10px); /* Make buttons take half width */
+      justify-content: center;
+  }
+
+  .viewer-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    gap: 15px; /* Space between buttons */
+    margin-top: 15px; /* Add space above actions */
+    padding-top: 15px; /* Add padding top */
+    border-top: 1px solid #eee; /* Separator line */
+  }  
+}

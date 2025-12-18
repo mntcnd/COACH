@@ -1,0 +1,677 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+body {
+    background-image: linear-gradient(to bottom, #562b63 0% 50%, #a884bd 50% 100%);
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    color: #290c26
+  }
+
+  .page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 20px;
+  }
+
+.container {
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 1400px; /* Increased from 1100px */
+    width: 95%;         /* Adjusted for better fit */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(70px);
+    margin-top: 30px;
+}
+
+
+h1 {
+  font-size: 2.5rem;       /* bigger heading */
+  font-weight: bold;
+  color: #4a148c;          /* deep purple */
+  text-align: center;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: 1.1rem;       /* slightly larger than normal */
+  color: #555;             /* softer gray for readability */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.top-section {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form-box {
+    background-color: rgba(152, 150, 150, 0.158);
+    flex: 1;
+    padding: 20px;
+    border-radius: 12px;
+    min-width: 300px; /* Increased from 280px */
+}
+
+.full-width {
+    width: 100%;
+}
+
+.form-box h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #290c26;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 6px;
+}
+
+label {
+    font-size: 14px;
+    margin-top: 10px;
+    display: block;
+}
+
+input,
+select,
+textarea {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    margin-top: 4px;
+}
+
+textarea {
+    resize: none;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+}
+
+.password-field-container {
+    position: relative;
+    width: 100%;
+    border-radius: 40px;    
+}
+
+.password-field-container {
+    position: relative;
+    width: 100%;
+}
+.password-popup {
+    display: none; /* Hidden by default */
+    position: absolute;
+    right: 0;
+    top: 100%; /* Position below the password field */
+    margin-top: 5px;
+    background: rgba(6, 6, 6, 0.8);
+    border-radius: 5px;
+    padding: 15px;
+    width: 100%; /* Full width of parent container */
+    max-width: 300px;
+    color: #fff;  
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin-right: -40px; /* Align with the right edge of the input */
+}
+.password-popup p {
+    margin-top: 0;
+    color: #fff;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.password-popup ul {
+    margin: 0;
+    padding-left: 20px;
+}
+.password-popup li {
+    margin-bottom: 5px;
+    transition: color 0.3s;
+}
+.password-popup li.valid {
+    color: #4CAF50;
+}
+.password-popup li.invalid {
+    color: #f44336;
+}
+.valid-input {
+    border: 1px solid #4CAF50 !important;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5) !important;
+}
+.invalid-input {
+    border: 1px solid #f44336 !important;
+    box-shadow: 0 0 5px rgba(244, 67, 54, 0.5) !important;
+}
+
+.phone-input-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.phone-input-container::before {
+    content: "+63";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+    font-weight: 500;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.phone-input-container input[type="tel"] {
+    width: 100%;
+    padding-left: 40px; /* Space for the prefix */
+}
+
+.error-message {
+    display: block;
+    color: #f44336;
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/* Input validation styles */
+input.valid-input {
+    border: 1px solid #4CAF50 !important;
+    background-color: rgba(76, 175, 80, 0.05) !important;
+}
+
+input.invalid-input {
+    border: 1px solid #f44336 !important;
+    background-color: rgba(244, 67, 54, 0.05) !important;
+}
+
+/* REVISED CSS FIX */
+
+/* This is the container for all options. */
+.student-options {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; /* Space between each option */
+    margin-top: 8px;
+}
+
+/* This targets the <input type="radio"> element. */
+.student-options input[type="radio"] {
+    width: initial; /* Overrides global 'input { width: 100%; }' */
+    margin-right: 5px; /* Adds space between the radio circle and the text */
+    vertical-align: middle; /* Aligns the circle with the label text */
+}
+
+/* LAST RESORT FIX: ONLY USE IF THE ABOVE FAILS */
+.student-options label {
+    display: inline-block !important; 
+    vertical-align: middle !important;
+}
+
+/* Keep the terms-container checkbox fix separate */
+.terms-container input[type="checkbox"] {
+    width: initial;
+}
+
+/* CSS for the tech categories section */
+.tech-categories-container {
+    margin: 20px 0;
+}
+
+.tech-categories-container label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Changed to grid with auto-fit */
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.category-section {
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 15px;
+    transition: all 0.3s ease;
+    background: #fafafa;
+    width: 100%; /* Ensure full width within grid cell */
+}
+
+.category-section.expanded {
+    border-color:  #b28dbd;
+    background: #f8fff8;
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.category-header:hover {
+    background-color: #f0f0f0;
+}
+
+.category-icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.category-title {
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+}
+
+.expand-icon {
+    margin-left: auto;
+    transition: transform 0.3s ease;
+    font-size: 12px;
+    color: #666;
+}
+
+.category-section.expanded .expand-icon {
+    transform: rotate(180deg);
+}
+
+.subcategories {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin-top: 10px;
+}
+
+.category-section.expanded .subcategories {
+    max-height: 500px;
+}
+
+.subcategory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.tech-button {
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    padding: 8px 12px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.tech-button:hover {
+    border-color:  #562b63;
+    background-color: #f8fff8;
+    transform: translateY(-1px);
+}
+
+.tech-button.selected {
+    background-color:  #562b63;
+    border-color:  #562b63;
+    color: white;
+    transform: scale(1.05);
+}
+
+.selected-interests {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid  #562b63;
+}
+
+.selected-interests h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.selected-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.selected-tag {
+    background:  #562b63;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.remove-tag {
+    cursor: pointer;
+    font-weight: bold;
+    color: #ff4444;
+}
+
+.no-selection {
+    color: #666;
+    font-style: italic;
+}
+
+.terms-container {
+    background-color: rgba(152, 150, 150, 0.158);
+    backdrop-filter: blur(70px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: left;
+}
+
+.terms-container label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    margin-bottom: 16px;
+    color: #290c26;
+}
+
+.terms-container input[type="checkbox"] {
+    margin-top: 5px;
+    width: 18px;
+    height: 18px;
+}
+
+.terms-container span {
+    flex: 1;
+    line-height: 1.5;
+}
+
+.terms-container a {
+    color: #0077cc;
+    text-decoration: none;
+}
+
+.terms-container a:hover {
+    text-decoration: underline;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.cancel-btn {
+    background: none;
+    border: none;
+    color: #290c26;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button, .submit-btn {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #921ce0 0%, #360051 100%);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button::before, .submit-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: skewX(-25deg);
+}
+
+button:hover::before, .submit-btn:hover::before {
+    animation: shine 0.75s forwards;
+}
+
+@keyframes shine {
+    0% {
+        left: -75%;
+    }
+    100% {
+        left: 125%;
+    }
+}
+
+.welcomeb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: -30px, 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+    
+  }
+  
+  .welcome-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(70px);
+    border-radius: 30px;
+    width: 1200px; /* Increased from 1000px */
+    max-width: 95%; /* Added max-width for responsiveness */
+    padding: 30px 60px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  
+.typing-gradient {
+    font-size: 3em;
+    margin-left: 20px;
+    text-align: center;
+    font-family: "Ubuntu", sans-serif;
+    margin-top: 10px;
+  
+    background: linear-gradient(to right, #ffffff, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 4px solid rgba(255, 255, 255, 0.907); /* Simulates cursor */
+    width: 0;
+    display: inline-block;
+  
+    animation: typing 4s steps(20, end) forwards, blink 0.7s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 30.5ch; } /* ✅ Adjust based on the number of characters */
+  }
+  
+  @keyframes blink {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: rgba(248, 245, 249, 0.7); }
+  }
+
+/* Responsive design improvements */
+@media (max-width: 1200px) {
+    .categories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        width: 98%;
+        padding: 20px;
+    }
+    
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .top-section {
+        flex-direction: column;
+    }
+    
+    .form-box {
+        min-width: 100%;
+    }
+    
+    .welcome-box {
+        width: 100%;
+        padding: 20px 30px;
+    }
+    
+    .typing-gradient {
+        font-size: 2em;
+    }
+    
+    .password-popup {
+        right: 0;
+        top: 100%;
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+#username-error:contains("Checking") {
+    animation: pulse 1.5s infinite;
+    color: #2196F3;
+}
+
+/* Container to manage the layout of the custom file elements */
+.custom-file-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+    /* This makes sure the custom button and text are side-by-side */
+}
+
+/* 1. Hide the ugly, unstylable default file input */
+.custom-file-input-container input[type="file"] {
+    /* These styles make the input invisible but still accessible/clickable */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* 2. Style the custom label to look like a button (the 'Choose File' button) */
+.custom-file-button {
+    /* Use colors from your theme (e.g., a nice purple) */
+    background-color: #562b63; /* Purple background */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px; /* Apply the radius you wanted */
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.1s;
+    white-space: nowrap; /* Prevents the text from wrapping */
+}
+
+.custom-file-button:hover {
+    background-color: #7b4397; /* Slightly lighter on hover */
+}
+
+.custom-file-button:active {
+    transform: scale(0.98);
+}
+
+/* 3. Style the text that shows "No file chosen" */
+.file-name {
+    font-size: 14px;
+    color: #555; /* Darker gray for visibility */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* Adds '...' if the filename is too long */
+    flex-grow: 1; /* Allows it to take up available space */
+}
+
+/* 4. Style the disabled state (important since your HTML has 'disabled') */
+.custom-file-input-container input[type="file"]:disabled + .custom-file-button {
+    background-color: #ccc; /* Light gray for disabled button */
+    color: #888;
+    cursor: not-allowed;
+}
+
+.custom-file-input-container input[type="file"]:disabled + .custom-file-button:hover {
+    background-color: #ccc;
+    transform: none;
+}

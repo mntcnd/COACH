@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #6a2c70;
+    --nav-color: #693B69;
+    --dash-color: #fff;
+    --logo-color: #fff;
+    --text-color: #000;
+    --text-color-light: #333;
+    --white: #fff;
+    --border-color: #ccc;
+    --toggle-color: #fff;
+    --title-icon-color: #fff;
+    --admin-message-bg: #f0e6f5;
+    --user-message-bg: #e6f5f0;
+    --time-03: all 0.3s linear;
+    --time-02: all 0.2s linear;
+    --background-color: #f0e6f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-transform: none;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+}
+
+body.dark {
+    --primary-color: #3a3b3c;
+    --nav-color: #181919;
+    --dash-color: #262629;
+    --logo-color: #ecd4ea;
+    --text-color: #ecd4ea;
+    --text-color-light: #ccc;
+    --white: #aaa;
+    --border-color: #404040;
+    --toggle-color: #693b69;
+    --title-icon-color: #ddd;
+    --admin-message-bg: #3a3a3a;
+    --user-message-bg: #2a2a2a;
+}
+
+
+
+.admin-container {
+    width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Header for admin sections */
+.admin-controls-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.admin-controls-header h2 {
+    margin: 0;
+    color: #333;
+}
+
+/* Re-style the toggle button for use as a link */
+.admin-toggle-view {
+    background-color: #6a2c70;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.admin-toggle-view:hover {
+    background-color: #56235b;
+}
+
+/* Banned Users Table Styles */
+.banned-users-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.banned-users-table th, .banned-users-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.banned-users-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.banned-users-table tr:nth-child(even) {
+    background-color: #fdfdfd;
+}
+
+.unban-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.unban-btn:hover {
+    background-color: #218838;
+}

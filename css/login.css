@@ -1,0 +1,237 @@
+/* =============================
+   Reset & Base Styling
+============================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #562b63;
+    background-image: linear-gradient(to bottom, #562b63 0% 50%, #a884bd 50% 100%);
+}
+
+
+/* =============================
+   Login Container
+============================= */
+.login-container {
+    display: flex;
+    width: 950px;
+    max-width: 95%;
+    height: 550px;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* =============================
+   LEFT (Form)
+============================= */
+.login-box {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #fff;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.logo img:hover {
+    transform: translateY(-3px) scale(1.02); /* gentle lift */
+    filter: drop-shadow(0 5px 12px rgba(0,0,0,0.25));
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 25px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.login-header h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #562b63; /* Purple brand color */
+    margin-bottom: 5px;
+}
+
+.login-header p {
+    font-size: 14px;
+    color: #6B7280; /* Neutral gray */
+}
+
+/* Inputs */
+form input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    font-size: 14px;
+    background: #F9FAFB;
+    transition: all 0.3s ease;
+}
+
+form input:focus {
+    border-color: #7C3AED; /* Purple focus */
+    background: #fff;
+    outline: none;
+}
+
+/* Options row */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.options label {
+    color: #6B7280;
+}
+
+.forgot-link {
+    color: #7C3AED; /* Purple link */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+/* Login button */
+/* Login button */
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90deg, #290c26, #562b63);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background: linear-gradient(90deg, #290c26, #562b63); /* lighter purple gradient */
+    transform: scale(1.03); /* slight zoom */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* purple glow */
+}
+
+
+/* Register */ 
+.register-section {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #6B7280;
+}
+
+.register-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    color: #7C3AED; /* Purple */
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.register-btn:hover {
+    text-decoration: underline;
+}
+
+/* =============================
+   RIGHT (Illustration + Text)
+============================= */
+.info-box {
+    flex: 1;
+    background: #F9FAFB;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.info-box h3 {
+    font-size: 20px;
+    margin: 20px 0 10px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.info-box p {
+    font-size: 14px;
+    color: #6B7280;
+    max-width: 300px;
+    margin-bottom: 25px;
+}
+
+/* Illustration */
+.illustration {
+    width: 80%;
+    max-width: 280px;
+    margin-bottom: 15px;
+}
+
+/* Indicator Dots */
+.dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dots span {
+    width: 8px;
+    height: 8px;
+    background: #D1D5DB;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dots .active {
+    background: #7C3AED; /* Purple active dot */
+}
+
+.coach-header {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    color: #333; /* dark, professional color */
+    margin-bottom: 0.5rem;
+}
+
+.coach-subtext {
+    font-size: 1rem;
+    text-align: center;
+    color: #666; /* subtle, clean secondary text */
+    margin-top: 0;
+}
